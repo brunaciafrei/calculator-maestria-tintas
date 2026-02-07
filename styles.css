@@ -471,6 +471,18 @@ small {
     width: 100%;
     justify-content: flex-start;
   }
+
+  .topbar-info {
+    width: 100%;
+    flex-wrap: wrap;
+    border-radius: 16px;
+    padding: 10px 12px;
+  }
+
+  .topbar-info .btn-outline {
+    width: auto;
+    text-align: center;
+  }
 }
 
 @media (max-width: 520px) {
