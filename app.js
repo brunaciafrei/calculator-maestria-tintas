@@ -257,7 +257,6 @@ const elements = {
   btnPdf: $("#btn-pdf"),
   btnWhats: $("#btn-whatsapp"),
   btnReset: $("#btn-reset"),
-  btnResetTop: $("#btn-reset-top"),
   areaSimples: $("#area-simples"),
   areaDetalhada: $("#area-detalhada"),
   stepMedidas: document.querySelector('[data-step="medidas"]'),
@@ -844,7 +843,6 @@ function bindEvents() {
   elements.btnWhats.addEventListener("click", openWhatsApp);
   elements.btnPdf.addEventListener("click", generatePDF);
   elements.btnReset.addEventListener("click", resetAll);
-  elements.btnResetTop.addEventListener("click", resetAll);
 
   $$('input[name="modo-area"]').forEach((input) => {
     input.addEventListener("change", (event) => handleModeChange(event.target.value));
