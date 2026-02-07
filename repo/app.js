@@ -615,97 +615,20 @@ function generatePDF() {
       <title>Orçamento Maestria</title>
       <style>
         * { box-sizing: border-box; }
-        body { font-family: "Google Sans", Arial, sans-serif; margin: 0; background: #ffffff; color: #0f1626; }
-        .page { padding: 34px 30px 36px; }
-        .header {
-          background: #0b268a;
-          color: #fff;
-          padding: 22px 24px;
-          border-radius: 16px;
-          display: grid;
-          grid-template-columns: 1fr auto;
-          align-items: center;
-          gap: 16px;
-        }
+        body { font-family: "Google Sans", Arial, sans-serif; margin: 0; background: #f5f7ff; color: #0f1626; }
+        .page { padding: 32px 28px 36px; }
+        .header { background: #0b268a; color: #fff; padding: 18px 20px; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; }
         .header h1 { font-size: 20px; margin: 0 0 4px; }
         .header p { margin: 0; font-size: 12px; opacity: .9; }
-        .logo {
-          width: 64px;
-          height: 64px;
-          border-radius: 16px;
-          background: #0b268a;
-          display: grid;
-          place-items: center;
-          border: 1px solid rgba(255,255,255,0.2);
-        }
-        .logo img { width: 46px; height: auto; display: block; }
-        .meta {
-          margin-top: 14px;
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 10px;
-          font-size: 11px;
-          color: #5f6b85;
-        }
-        .meta strong { color: #0f1626; font-weight: 600; }
-        .section {
-          margin-top: 18px;
-          border-radius: 16px;
-          padding: 18px;
-          border: 1px solid #d9e2f4;
-          background: #ffffff;
-        }
-        .section-title {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          font-size: 13px;
-          color: #0b268a;
-          margin: 0 0 12px;
-        }
-        .badge {
-          width: 22px;
-          height: 22px;
-          border-radius: 6px;
-          background: #e8efff;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          color: #0b268a;
-          font-weight: 700;
-          font-size: 12px;
-        }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 18px; font-size: 12px; }
-        .label { color: #5f6b85; font-size: 11px; }
+        .logo { width: 48px; height: 48px; border-radius: 12px; background: #0b268a; display: grid; place-items: center; }
+        .logo img { width: 36px; height: auto; display: block; }
+        .card { background: #fff; border: 1px solid #d9e2f4; border-radius: 14px; padding: 16px; margin-top: 18px; }
+        .card h2 { margin: 0 0 12px; font-size: 14px; color: #0b268a; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 18px; font-size: 12px; }
+        .label { color: #5f6b85; }
         .value { font-weight: 600; }
-        .highlight {
-          margin-top: 14px;
-          background: #f3f6ff;
-          border-radius: 12px;
-          padding: 12px 14px;
-          display: grid;
-          grid-template-columns: 1fr auto;
-          gap: 10px;
-          align-items: center;
-        }
-        .highlight strong { color: #0b268a; font-size: 14px; }
-        .info {
-          margin-top: 14px;
-          background: #e8efff;
-          border-radius: 12px;
-          padding: 12px;
-          font-size: 11px;
-          color: #4a5b7a;
-        }
-        .footer {
-          margin-top: 24px;
-          font-size: 10px;
-          color: #7a889f;
-          display: flex;
-          justify-content: space-between;
-          gap: 12px;
-        }
-        .footer span { white-space: nowrap; }
+        .info { margin-top: 14px; background: #e8efff; border-radius: 12px; padding: 12px; font-size: 11px; color: #4a5b7a; }
+        .footer { margin-top: 24px; font-size: 10px; color: #7a889f; }
         @media print {
           body { background: #fff; }
           .page { padding: 0; }
@@ -721,13 +644,8 @@ function generatePDF() {
           </div>
           <div class="logo"><img src="${logoSrc}" alt="Logo Maestria" /></div>
         </div>
-        <div class="meta">
-          <div>Cliente: <strong>—</strong></div>
-          <div>Projeto: <strong>—</strong></div>
-          <div>Validade: <strong>7 dias</strong></div>
-        </div>
-        <div class="section">
-          <div class="section-title"><span class="badge">1</span>Resumo do cálculo</div>
+        <div class="card">
+          <h2>Resumo do cálculo</h2>
           <div class="grid">
             <div>
               <div class="label">Produto</div>
@@ -758,23 +676,12 @@ function generatePDF() {
               <div class="value">${summary.embalagens}</div>
             </div>
           </div>
-          <div class="highlight">
-            <div>
-              <div class="label">Total estimado</div>
-              <strong>${summary.latas} latas • ${summary.litros}</strong>
-            </div>
-            <div>
-              <div class="label">Marca</div>
-              <strong>${summary.marca}</strong>
-            </div>
-          </div>
           <div class="info">
             Este cálculo é uma estimativa. Superfícies irregulares, porosas ou muito absorventes podem exigir mais produto.
           </div>
         </div>
         <div class="footer">
-          <span>Contato comercial: +55 14 99835-1483</span>
-          <span>Orçamento gerado pela Calculadora Maestria Tintas</span>
+          Contato comercial: +55 14 99835-1483 • Orçamento gerado pela Calculadora Maestria Tintas
         </div>
       </div>
       <script>
@@ -786,38 +693,14 @@ function generatePDF() {
     </body>
   </html>`;
 
-  const iframe = document.createElement("iframe");
-  iframe.style.position = "fixed";
-  iframe.style.right = "0";
-  iframe.style.bottom = "0";
-  iframe.style.width = "0";
-  iframe.style.height = "0";
-  iframe.style.border = "0";
-  iframe.setAttribute("aria-hidden", "true");
-  document.body.appendChild(iframe);
-
-  const doc = iframe.contentWindow?.document;
-  if (!doc) {
-    alert("Não foi possível gerar o PDF. Tente novamente.");
-    iframe.remove();
+  const printWindow = window.open("", "_blank", "noopener,noreferrer");
+  if (!printWindow) {
+    alert("Seu navegador bloqueou a janela de impressão. Permita pop-ups para gerar o PDF.");
     return;
   }
-
-  doc.open();
-  doc.write(html);
-  doc.close();
-
-  const printAfterLoad = () => {
-    const win = iframe.contentWindow;
-    if (!win) return;
-    win.focus();
-    win.print();
-    setTimeout(() => iframe.remove(), 1000);
-  };
-
-  iframe.onload = () => {
-    setTimeout(printAfterLoad, 300);
-  };
+  printWindow.document.open();
+  printWindow.document.write(html);
+  printWindow.document.close();
 }
 
 function bindEvents() {
