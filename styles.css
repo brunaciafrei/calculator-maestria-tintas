@@ -436,11 +436,15 @@ small {
 .btn-icon {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
 }
 
 .btn-icon svg {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+  display: block;
 }
 
 .footer {
