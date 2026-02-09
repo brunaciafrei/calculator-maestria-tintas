@@ -1,4 +1,4 @@
-const CACHE_NAME = "maestria-v4";
+const CACHE_NAME = "maestria-v5";
 const ASSETS = [
   "./",
   "./index.html",
@@ -32,6 +32,28 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
   const { request } = event;
   if (request.method !== "GET") return;
+
+  const accept = request.headers.get("accept") || "";
+  const isHtml =
+    accept.includes("text/html") ||
+    request.mode === "navigate" ||
+    request.destination === "document" ||
+    request.url.endsWith("/") ||
+    request.url.endsWith("/index.html") ||
+    request.url.includes("index.html");
+
+  if (isHtml) {
+    event.respondWith(
+      fetch(request)
+        .then((response) => {
+          const responseClone = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(request, responseClone));
+          return response;
+        })
+        .catch(() => caches.match(request))
+    );
+    return;
+  }
 
   event.respondWith(
     caches.match(request).then((cached) => {

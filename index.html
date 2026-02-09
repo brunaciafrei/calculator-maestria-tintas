@@ -9,15 +9,15 @@
     <link rel="icon" href="img/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png" />
     <link rel="apple-touch-icon" href="img/icons/icon-192.png" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20260209" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <script defer src="vendor/jspdf.umd.min.js"></script>
-    <script defer src="app.js"></script>
+    <script defer src="vendor/jspdf.umd.min.js?v=20260209"></script>
+    <script defer src="app.js?v=20260209"></script>
   </head>
   <body>
     <div class="page">
@@ -267,15 +267,15 @@
               </span>
               Número de Demãos
             </h2>
-            <p>Ajuste apenas se necessário.</p>
+            <p>Quantidade sugerida pelo fabricante.</p>
           </div>
           <div class="field">
             <label for="demaos">
               Número de demãos
               <span class="tooltip" aria-label="Recomendamos seguir a indicação do fabricante para melhor resultado">?</span>
             </label>
-            <input id="demaos" type="number" min="1" max="5" step="1" value="2" />
-            <small>Recomendamos seguir a indicação do fabricante para melhor resultado.</small>
+            <input id="demaos" class="demaos-input" type="number" min="1" max="5" step="1" value="2" readonly aria-readonly="true" />
+            <small>Quantidade de demãos sugerida (não editável).</small>
           </div>
         </section>
 

@@ -207,6 +207,17 @@ select:focus {
   box-shadow: 0 0 0 3px rgba(31, 109, 94, 0.18);
 }
 
+input[readonly] {
+  background: #f2f4ff;
+  color: var(--ink);
+  border-color: rgba(11, 38, 138, 0.2);
+  cursor: default;
+}
+
+.field .demaos-input {
+  width: 96px;
+}
+
 small {
   color: var(--muted);
 }
@@ -302,11 +313,17 @@ small {
 .stepper button {
   height: 44px;
   border-radius: 12px;
-  border: 1px solid var(--stroke);
-  background: #fff;
+  border: 1px solid var(--brand);
+  background: var(--brand);
   cursor: pointer;
   font-size: 1.2rem;
-  color: var(--muted);
+  color: #fff;
+  box-shadow: 0 8px 16px rgba(11, 38, 138, 0.18);
+}
+
+.stepper button:hover {
+  background: #081f6f;
+  border-color: #081f6f;
 }
 
 .stepper.soft {
